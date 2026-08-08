@@ -1,0 +1,311 @@
+/* Explain: Theme tokens for the 'Autoridad y Majestad' dark mode identity */
+:root {
+    --primary-color: #0047AB;
+    --primary-hover: #003380;
+    --secondary-color: #111827;
+    --accent-color: #0047AB;
+    --logo-color: #D4AF37;
+    --logo-subtitle-color: #D4AF37;
+    --button-color: #0047AB;
+    --background-color: #000000;
+    --surface-color: #0A0A0A;
+    --footer-bg: #050505;
+    --text-color: #FFFFFF;
+    --text-muted: #D1D5DB;
+    --border-color: rgba(255, 255, 255, 0.12);
+    --glass-bg: rgba(10, 10, 10, 0.72);
+    --glass-border: rgba(0, 71, 171, 0.32);
+    --nav-bg: rgba(0, 0, 0, 0.78);
+    --field-bg: rgba(255, 255, 255, 0.05);
+    --sage-soft: rgba(0, 71, 171, 0.15);
+    --sage-dark: #0047AB;
+    --terracotta-soft: rgba(212, 175, 55, 0.22);
+    --shadow-soft: 0 22px 70px rgba(0, 0, 0, 0.4);
+    --shadow-button: 0 16px 36px rgba(0, 71, 171, 0.25);
+    --font-heading: 'Lora', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --font-logo: 'Playfair Display', serif;
+}
+
+/* Variables override for B&W internal pages */
+body.theme-bw {
+    --primary-color: #000000;
+    --primary-hover: #333333;
+    --secondary-color: #ffffff;
+    --accent-color: #374151;
+    --logo-color: #000000;
+    --logo-subtitle-color: #4b5563;
+    --button-color: #000000;
+    --background-color: #ffffff;
+    --surface-color: #f9fafb;
+    --footer-bg: #f3f4f6;
+    --text-color: #111827;
+    --text-muted: #6b7280;
+    --border-color: #e5e7eb;
+    --glass-bg: rgba(255, 255, 255, 0.95);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --sage-soft: #f3f4f6;
+    --sage-dark: #111827;
+    --terracotta-soft: #e5e7eb;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --shadow-button: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.theme-bw .metallic-gold-text {
+    background: none;
+    color: #111827;
+    -webkit-text-fill-color: initial;
+    filter: none;
+}
+
+/* ===========================================================
+   TEMA CLARO
+   =========================================================== */
+
+[data-theme="light"]{
+    --primary-color:#0047AB;
+    --primary-hover:#003380;
+
+    --background-color:#ffffff;
+    --surface-color:#f7f7f7;
+    --footer-bg:#ececec;
+
+    --text-color:#111827;
+    --text-muted:#04041f;
+
+    --border-color:rgba(0,0,0,.10);
+
+    --glass-bg:rgba(255,255,255,.85);
+    --glass-border:rgba(0,0,0,.10);
+
+    --nav-bg:#ececec;
+
+    --field-bg:#ffffff;
+
+    /* El logo SIEMPRE dorado */
+    --logo-color:#D4AF37;
+    --logo-subtitle-color:#D4AF37;
+}
+
+/* Aplicación global */
+
+body{
+    background:var(--background-color);
+    color:var(--text-color);
+    transition:
+        background .30s ease,
+        color .30s ease;
+}
+
+section{
+    background:var(--background-color);
+}
+
+p,
+li{
+    color:var(--text-muted);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    color:var(--text-color);
+}
+
+a{
+    color:inherit;
+}
+
+/* ==========================================================
+   HERO DE PÁGINAS INTERNAS
+   ========================================================== */
+
+.internal-hero-overlay {
+    background: rgba(0, 0, 0, 0.70);
+}
+
+/* MODO CLARO */
+[data-theme="light"] .internal-hero-overlay {
+    background: rgba(236, 236, 236, 0.450);
+}
+
+/* ==========================================================
+   GLASS PANEL - MODO CLARO
+   ========================================================== */
+
+[data-theme="light"] .glass-panel {
+    background: rgba(255, 255, 255, 0.92);
+    border-color: var(--glass-border);
+    box-shadow: var(--shadow-soft);
+}
+
+/* ===========================================================
+   HERO - LOGO Y FONDO SEGÚN EL TEMA
+   =========================================================== */
+
+/* MODO OSCURO */
+.hero-logo-background {
+    position: absolute;
+    inset: 0;
+    background-image: url("../img/800_6a6babfc90a27af3c.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* MODO CLARO */
+[data-theme="light"] .hero-logo-background {
+    background-image: url("../img/Logo-degradado.png");
+}
+
+
+/* ===========================================================
+   OVERLAY DEL HERO
+   =========================================================== */
+
+/* MODO OSCURO */
+.hero-overlay {
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.90),
+        rgba(0, 0, 0, 0.20),
+        transparent
+    );
+}
+
+/* MODO CLARO */
+[data-theme="light"] .hero-overlay {
+    background: linear-gradient(
+        to top,
+        rgba(255, 255, 255, 0.30),
+        rgba(255, 255, 255, 0.05),
+        transparent
+    );
+}
+
+
+/* ===========================================================
+   FOOTER - ESTILO FINAL
+   =========================================================== */
+
+/* Enlaces de Conócenos */
+.footer-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding-left: 14px;
+    padding-bottom: 3px;
+
+    color: var(--text-muted);
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* Viñeta */
+.footer-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+    background: var(--logo-color);
+
+    transform: translateY(-50%);
+}
+
+
+/* Línea debajo */
+.footer-link::after {
+    content: "";
+    position: absolute;
+
+    left: 14px;
+    right: 0;
+    bottom: 0;
+
+    height: 1px;
+
+    background: var(--logo-color);
+
+    transform: scaleX(0.45);
+    transform-origin: left;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* Hover */
+.footer-link:hover {
+    color: var(--logo-color);
+}
+
+.footer-link:hover::before {
+    background: var(--primary-color);
+}
+
+.footer-link:hover::after {
+    background: var(--primary-color);
+    transform: scaleX(1);
+}
+
+
+/* ===========================================================
+   ICONOS DE REDES SOCIALES
+   =========================================================== */
+
+.footer-social-icon {
+    display: inline-flex;
+
+    width: 40px;
+    height: 40px;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9999px;
+
+    border: 1px solid var(--logo-color);
+
+    background: var(--logo-color);
+
+    color: #251a00;
+
+    box-shadow: var(--shadow-soft);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* Hover de los iconos */
+.footer-social-icon:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+
+    transform: translateY(-3px);
+}
+
+
+/* ===========================================================
+   TÍTULOS DEL FOOTER
+   =========================================================== */
+
+footer .text-\[var\(--logo-color\)\] {
+    color: var(--logo-color);
+}

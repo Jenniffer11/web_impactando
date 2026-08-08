@@ -1,0 +1,59 @@
+/* Explain: Theme tokens for the 'Autoridad y Majestad' dark mode identity */
+:root {
+    --primary-color: #0047AB;
+    --primary-hover: #003380;
+    --secondary-color: #111827;
+    --accent-color: #0047AB;
+    --logo-color: #D4AF37;
+    --logo-subtitle-color: #D4AF37;
+    --button-color: #0047AB;
+    --background-color: #000000;
+    --surface-color: #0A0A0A;
+    --footer-bg: #050505;
+    --text-color: #FFFFFF;
+    --text-muted: #D1D5DB;
+    --border-color: rgba(255, 255, 255, 0.12);
+    --glass-bg: rgba(10, 10, 10, 0.72);
+    --glass-border: rgba(0, 71, 171, 0.32);
+    --nav-bg: rgba(0, 0, 0, 0.78);
+    --field-bg: rgba(255, 255, 255, 0.05);
+    --sage-soft: rgba(0, 71, 171, 0.15);
+    --sage-dark: #0047AB;
+    --terracotta-soft: rgba(212, 175, 55, 0.22);
+    --shadow-soft: 0 22px 70px rgba(0, 0, 0, 0.4);
+    --shadow-button: 0 16px 36px rgba(0, 71, 171, 0.25);
+    --font-heading: 'Lora', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --font-logo: 'Playfair Display', serif;
+}
+
+/* Variables override for B&W internal pages */
+body.theme-bw {
+    --primary-color: #000000;
+    --primary-hover: #333333;
+    --secondary-color: #ffffff;
+    --accent-color: #374151;
+    --logo-color: #000000;
+    --logo-subtitle-color: #4b5563;
+    --button-color: #000000;
+    --background-color: #ffffff;
+    --surface-color: #f9fafb;
+    --footer-bg: #f3f4f6;
+    --text-color: #111827;
+    --text-muted: #6b7280;
+    --border-color: #e5e7eb;
+    --glass-bg: rgba(255, 255, 255, 0.95);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --sage-soft: #f3f4f6;
+    --sage-dark: #111827;
+    --terracotta-soft: #e5e7eb;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --shadow-button: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.theme-bw .metallic-gold-text {
+    background: none;
+    color: #111827;
+    -webkit-text-fill-color: initial;
+    filter: none;
+}

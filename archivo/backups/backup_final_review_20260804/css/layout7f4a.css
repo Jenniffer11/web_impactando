@@ -1,0 +1,45 @@
+/* Explain: Layout utilities adapted for dark themed backgrounds */
+.section-pad {
+    padding-top: clamp(5.5rem, 10vw, 9rem);
+    padding-bottom: clamp(5.5rem, 10vw, 9rem);
+}
+
+.hero-split {
+    background:
+        linear-gradient(115deg, rgba(10, 10, 10, 0.96) 0%, rgba(10, 10, 10, 0.78) 52%, rgba(0, 71, 171, 0.12) 100%);
+}
+
+.orb {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(8px);
+    opacity: 0.52;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.orb-sage {
+    width: 24rem;
+    height: 24rem;
+    right: 8%;
+    top: 10%;
+    background: rgba(0, 71, 171, 0.2);
+}
+
+.orb-terracotta {
+    width: 18rem;
+    height: 18rem;
+    left: 4%;
+    bottom: 10%;
+    background: rgba(212, 175, 55, 0.15);
+}
+
+.contact-section {
+    background:
+        radial-gradient(circle at 8% 16%, rgba(0, 71, 171, 0.15), transparent 24rem),
+        linear-gradient(180deg, var(--background-color), var(--surface-color));
+}
+
+.gold-divider {
+    border-bottom: 1px solid rgba(212, 175, 55, 0.35) !important;
+}

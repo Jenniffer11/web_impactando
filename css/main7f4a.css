@@ -1,0 +1,35 @@
+/* Explain: Base reset and typography defaults for the dark theme */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--background-color);
+    color: var(--text-color);
+    scroll-padding-top: 92px;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    text-rendering: optimizeLegibility;
+}
+
+button,
+a,
+select {
+    cursor: pointer;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+::selection {
+    background: var(--accent-color);
+    color: #ffffff;
+}
