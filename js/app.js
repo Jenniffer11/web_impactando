@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
 
+document.addEventListener("DOMContentLoaded", () => {
 
 /* =========================================================
    CONFIGURACIÓN
@@ -100,6 +100,7 @@ function setButtonState(form, loading) {
     if (!button) return;
 
     if (loading) {
+
         if (!button.dataset.originalText) {
             button.dataset.originalText = button.innerHTML;
         }
@@ -112,6 +113,7 @@ function setButtonState(form, loading) {
         button.style.opacity = "0.7";
 
     } else {
+
         button.disabled = false;
 
         if (button.dataset.originalText) {
@@ -127,6 +129,7 @@ function setButtonState(form, loading) {
    ENVIAR DATOS A GOOGLE SHEETS
    ========================================================= */
 
+
 async function sendToGoogleSheets(form, formType) {
 
     const formData = new FormData(form);
@@ -138,6 +141,19 @@ async function sendToGoogleSheets(form, formType) {
     formData.forEach((value, key) => {
         data[key] = value;
     });
+
+
+    /* ---------------------------------------------------------
+       DONACIÓN - REEMPLAZAR "OTRO" POR EL NOMBRE DEL BANCO
+       --------------------------------------------------------- */
+
+    if (
+        formType === "donaciones" &&
+        data.bank === "Otro" &&
+        data.otherBank
+    ) {
+        data.bank = data.otherBank.trim();
+    }
 
 
     /* ---------------------------------------------------------
@@ -169,16 +185,9 @@ async function sendToGoogleSheets(form, formType) {
         body: JSON.stringify(data)
     });
 
-    /*
-     * Apps Script responde correctamente con no-cors,
-     * pero el navegador no permite leer esa respuesta.
-     *
-     * Si fetch no lanza un error, consideramos que
-     * la solicitud fue enviada.
-     */
-
     return response;
 }
+
 
 
 /* =========================================================
@@ -209,20 +218,10 @@ async function processForm(form, formType) {
             formType
         );
 
-        /*
-         * IMPORTANTE:
-         * limpiamos completamente el formulario
-         * después del envío.
-         */
-
+        /* Limpiar formulario */
         form.reset();
 
-        /*
-         * Dejamos el mensaje en el mismo formulario.
-         * No hacemos scroll.
-         * No cambiamos de página.
-         */
-
+        /* Mantener mensaje en el mismo lugar */
         showStatus(
             form,
             "✓ Enviado correctamente.",
@@ -256,10 +255,6 @@ async function processForm(form, formType) {
 const bookingForm =
     document.getElementById("bookingForm");
 
-const overlayBookingForm =
-    document.getElementById("overlayBookingForm");
-
-
 if (bookingForm) {
 
     bookingForm.addEventListener(
@@ -272,112 +267,6 @@ if (bookingForm) {
                 bookingForm,
                 "peticiones"
             );
-        }
-    );
-}
-
-
-if (overlayBookingForm) {
-
-    overlayBookingForm.addEventListener(
-        "submit",
-        (event) => {
-
-            event.preventDefault();
-
-            processForm(
-                overlayBookingForm,
-                "peticiones"
-            );
-        }
-    );
-}
-
-
-/* =========================================================
-   FORMULARIO MÓVIL DE PETICIONES
-   ========================================================= */
-
-const mobileBookButton =
-    document.getElementById("mobileBookButton");
-
-const bookingOverlay =
-    document.getElementById("bookingOverlay");
-
-const closeBookingOverlay =
-    document.getElementById("closeBookingOverlay");
-
-
-function openBookingOverlay() {
-
-    if (!bookingOverlay) return;
-
-    bookingOverlay.classList.add("is-open");
-
-    bookingOverlay.setAttribute(
-        "aria-hidden",
-        "false"
-    );
-
-    document.body.style.overflow = "hidden";
-
-    const firstInput =
-        bookingOverlay.querySelector(
-            'input[name="name"]'
-        );
-
-    if (firstInput) {
-        firstInput.focus();
-    }
-}
-
-
-function closeBookingOverlayFn() {
-
-    if (!bookingOverlay) return;
-
-    bookingOverlay.classList.remove(
-        "is-open"
-    );
-
-    bookingOverlay.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-    document.body.style.overflow = "";
-}
-
-
-if (mobileBookButton) {
-
-    mobileBookButton.addEventListener(
-        "click",
-        openBookingOverlay
-    );
-}
-
-
-if (closeBookingOverlay) {
-
-    closeBookingOverlay.addEventListener(
-        "click",
-        closeBookingOverlayFn
-    );
-}
-
-
-if (bookingOverlay) {
-
-    bookingOverlay.addEventListener(
-        "click",
-        (event) => {
-
-            if (
-                event.target === bookingOverlay
-            ) {
-                closeBookingOverlayFn();
-            }
         }
     );
 }
@@ -468,6 +357,7 @@ if (crusadeForm) {
 }
 
 
+
 /* =========================================================
    DONACIONES
    ========================================================= */
@@ -477,11 +367,119 @@ const donationForm =
 
 if (donationForm) {
 
+    /* -----------------------------------------
+       BANCO - MOSTRAR / OCULTAR "OTRO BANCO"
+       ----------------------------------------- */
+
+    const bankSelect =
+        document.getElementById("bankSelect");
+
+    const otherBankContainer =
+        document.getElementById("otherBankContainer");
+
+    const otherBankInput =
+        document.getElementById("otherBank");
+
+
+    if (
+        bankSelect &&
+        otherBankContainer &&
+        otherBankInput
+    ) {
+
+        bankSelect.addEventListener(
+            "change",
+            () => {
+
+                if (bankSelect.value === "Otro") {
+
+                    /* Mostrar campo */
+                    otherBankContainer.classList.remove(
+                        "hidden"
+                    );
+
+                    /* Hacer obligatorio */
+                    otherBankInput.required = true;
+
+                    /* Llevar el cursor al campo */
+                    otherBankInput.focus();
+
+                } else {
+
+                    /* Ocultar campo */
+                    otherBankContainer.classList.add(
+                        "hidden"
+                    );
+
+                    /* Dejar de hacerlo obligatorio */
+                    otherBankInput.required = false;
+
+                    /* Limpiar contenido */
+                    otherBankInput.value = "";
+
+                    /* Quitar mensaje de validación */
+                    otherBankInput.setCustomValidity("");
+                }
+            }
+        );
+    }
+
+
+    /* -----------------------------------------
+       ENVÍO DEL FORMULARIO
+       ----------------------------------------- */
+
     donationForm.addEventListener(
         "submit",
         (event) => {
 
             event.preventDefault();
+
+
+            /* ---------------------------------
+               VALIDACIÓN DEL OTRO BANCO
+               --------------------------------- */
+
+            if (
+                bankSelect &&
+                otherBankInput &&
+                bankSelect.value === "Otro"
+            ) {
+
+                if (
+                    otherBankInput.value.trim() === ""
+                ) {
+
+                    otherBankInput.setCustomValidity(
+                        "Debes escribir el nombre del banco."
+                    );
+
+                    otherBankInput.reportValidity();
+
+                    return;
+
+                } else {
+
+                    otherBankInput.setCustomValidity("");
+                }
+            }
+
+
+            /* ---------------------------------
+               VALIDACIÓN GENERAL
+               --------------------------------- */
+
+            if (!donationForm.checkValidity()) {
+
+                donationForm.reportValidity();
+
+                return;
+            }
+
+
+            /* ---------------------------------
+               ENVIAR
+               --------------------------------- */
 
             processForm(
                 donationForm,
@@ -490,6 +488,8 @@ if (donationForm) {
         }
     );
 }
+
+
 
 
 /* =========================================================
@@ -525,8 +525,6 @@ document.addEventListener(
     (event) => {
 
         if (event.key !== "Escape") return;
-
-        closeBookingOverlayFn();
 
         const joinModal =
             document.getElementById(
@@ -600,4 +598,5 @@ document
             }
         );
     });
-  })
+
+});

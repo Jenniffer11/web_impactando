@@ -301,7 +301,8 @@ $10 USD</p>
 </section>
     </main>
     <!-- Explain: Responsive footer with centered tablet layout and standard desktop columns -->
-<<footer class="bg-[var(--footer-bg)] px-5 pb-24 pt-8 text-[var(--text-color)] sm:px-8 sm:pb-24 md:pb-10 lg:pt-12">
+
+<footer class="bg-[var(--footer-bg)] px-5 pb-24 pt-8 text-[var(--text-color)] sm:px-8 sm:pb-24 md:pb-10 lg:pt-12">
 
     <div class="mx-auto max-w-7xlx12 border-t border-[var(--glass-border)] pt-6 lg:pt-8">
 
@@ -310,7 +311,7 @@ $10 USD</p>
             <!-- LOGO Y DESCRIPCIÓN -->
             <div class="flex flex-col items-center text-center lg:items-start lg:text-left">
 
-                <a href="#top"
+                <a href="index.html#top"
                    class="inline-flex flex-col items-center text-center transition-opacity duration-300 hover:opacity-70">
 
                     <span
@@ -346,23 +347,28 @@ $10 USD</p>
 
                     <div class="mt-4 grid gap-3 text-sm">
 
-                        <a href="#about" class="footer-link">
+                        <!-- Lleva a Misión y Visión del INDEX -->
+                        <a href="index.html#about" class="footer-link">
                             Nuestra Misión
                         </a>
 
-                        <a href="#services" class="footer-link">
+                        <!-- Lleva a Reuniones del INDEX -->
+                        <a href="index.html#services" class="footer-link">
                             Reuniones Semanales
                         </a>
 
-                        <a href="#libros" class="footer-link">
+                        <!-- Lleva a la página LIBROS -->
+                        <a href="libros.html" class="footer-link">
                             Librería Ministerial
                         </a>
 
-                        <a href="#crusades" class="footer-link">
+                        <!-- Lleva a la página CRUZADAS -->
+                        <a href="cruzadas.html" class="footer-link">
                             Próximas Cruzadas
                         </a>
 
-                        <a href="#contact" class="footer-link">
+                        <!-- Lleva a Peticiones del INDEX -->
+                        <a href="index.html#contact" class="footer-link">
                             Peticiones de Oración
                         </a>
 
@@ -410,6 +416,7 @@ $10 USD</p>
 
             <div class="flex items-center justify-center gap-4">
 
+                <!-- FACEBOOK -->
                 <a
                     href="https://www.facebook.com/share/1GqzgHxJHP/"
                     target="_blank"
@@ -421,6 +428,7 @@ $10 USD</p>
 
                 </a>
 
+                <!-- INSTAGRAM -->
                 <a
                     href="https://www.instagram.com/impact.lasnaciones_casadedios?igsh=MW51MGdleDI1ZWJvZQ=="
                     target="_blank"
@@ -446,100 +454,144 @@ $10 USD</p>
 
 </footer>
 
+
+
+
 <!-- Modal: Acompañamiento y Consolidación (Únete a la Familia) -->
 <dialog id="joinModal" class="modal modal-bottom sm:modal-middle">
-    <div class="modal-box p-0 max-w-4xl bg-black rounded-t-3xl sm:rounded-3xl shadow-2xl border border-[var(--glass-border)] flex flex-col max-h-[90svh] overflow-hidden">
+    <div class="modal-box p-0 max-w-4xl bg-[var(--background-color)] rounded-t-3xl sm:rounded-3xl shadow-2xl border border-[var(--glass-border)] flex flex-col max-h-[90svh] overflow-hidden">
+
         <!-- Botón Cerrar (Sticky Mobile / Absoluto Desktop) -->
-        <div class="sticky top-0 z-50 flex shrink-0 items-center justify-end border-b border-white/5 bg-[#0a0a0a]/95 p-3 backdrop-blur-md sm:absolute sm:right-2 sm:top-2 sm:border-0 sm:bg-transparent">
-            <button type="button" onclick="document.getElementById('joinModal').close()" class="btn btn-sm btn-circle btn-ghost text-white sm:text-[var(--text-muted)] hover:bg-white/20" aria-label="Cerrar">
+        <div class="sticky top-0 z-50 flex shrink-0 items-center justify-end border-b border-[var(--border-color)] bg-[var(--surface-color)]/95 p-3 backdrop-blur-md sm:absolute sm:right-2 sm:top-2 sm:border-0 sm:bg-transparent">
+            <button type="button" onclick="document.getElementById('joinModal').close()" class="btn btn-sm btn-circle btn-ghost text-[var(--text-muted)] hover:bg-[var(--background-color)]/10 hover:text-[var(--text-color)]" aria-label="Cerrar">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
-        
+
         <!-- Contenedor con Scroll -->
         <div class="flex w-full flex-col md:flex-row overflow-y-auto overscroll-contain">
+
             <!-- LADO IZQUIERDO -->
             <div class="flex w-full shrink-0 flex-col justify-center bg-[var(--surface-color)] p-6 sm:p-10 md:w-5/12 text-[var(--text-color)] relative">
+
                 <p class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[var(--accent-color)] mb-4">
                     Acompañamiento y Consolidación
                 </p>
+
                 <h3 class="text-3xl font-semibold mb-6" style="font-family: var(--font-heading);">
                     ¡Bienvenido a Casa!
                 </h3>
-                
+
                 <blockquote class="border-l-2 border-[var(--accent-color)] pl-4 italic text-sm text-[var(--text-muted)] mb-8">
                     «Así que ya no son extraños ni forasteros, sino conciudadanos de los santos y miembros de la familia de Dios.»<br>
-                    <span class="block mt-2 font-semibold not-italic text-xs text-[var(--text-color)]">— Efesios 2:19</span>
+
+                    <span class="block mt-2 font-semibold not-italic text-xs text-[var(--text-color)]">
+                        — Efesios 2:19
+                    </span>
                 </blockquote>
-                
-                <div class="mt-auto rounded-xl bg-black/40 border border-[var(--border-color)] p-4">
+
+                <div class="mt-auto rounded-xl bg-[var(--background-color)]/40 border border-[var(--border-color)] p-4">
+
                     <div class="flex items-center gap-2 mb-2">
                         <i class="fa-solid fa-lock text-[var(--accent-color)] text-sm"></i>
-                        <p class="text-xs font-semibold text-white uppercase tracking-wider">Confidencialidad</p>
+
+                        <p class="text-xs font-semibold text-[var(--text-color)] uppercase tracking-wider">
+                            Confidencialidad
+                        </p>
                     </div>
+
                     <p class="text-xs text-[var(--text-muted)] leading-relaxed">
                         Tus datos son totalmente confidenciales. La información que compartas aquí será utilizada únicamente por nuestro equipo ministerial para darte la bienvenida, orar por tus necesidades y brindarte un acompañamiento personal en tu caminar de fe.
                     </p>
                 </div>
             </div>
-            
+
             <!-- LADO DERECHO -->
-            <div class="flex w-full shrink-0 flex-col justify-center bg-[#FAF9F6] p-6 sm:p-10 md:w-7/12 text-[#111827]">
-                <h4 class="text-2xl font-bold mb-2" style="font-family: var(--font-heading);">¡Queremos conocerte y caminar contigo!</h4>
-                <p class="text-sm text-[#4B5563] mb-6">Déjanos tus datos a continuación para ponernos en contacto contigo:</p>
-                
+            <div class="flex w-full shrink-0 flex-col justify-center bg-[var(--surface-color)] p-6 sm:p-10 md:w-7/12 text-[var(--text-color)]">
+
+                <h4 class="text-2xl font-bold mb-2" style="font-family: var(--font-heading);">
+                    ¡Queremos conocerte y caminar contigo!
+                </h4>
+
+                <p class="text-sm text-[var(--text-muted)] mb-6">
+                    Déjanos tus datos a continuación para ponernos en contacto contigo:
+                </p>
+
                 <form id="joinForm" class="grid gap-5" novalidate>
                     <input type="hidden" name="recaptchaToken" value="">
-                    
+
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
                         <fieldset>
-                            <label class="block text-xs font-bold text-[#374151] uppercase mb-1.5">Nombre *</label>
-                            <input type="text" name="firstName" required class="input bg-white text-[#111827] border-[#D1D5DB] w-full text-sm rounded-lg focus:border-[var(--accent-color)] focus:outline-none">
+                            <label class="block text-xs font-bold text-[var(--text-color)] uppercase mb-1.5">
+                                Nombre *
+                            </label>
+
+                            <input type="text" name="firstName" required class="input bg-[var(--field-bg)] text-[var(--text-color)] border-[var(--border-color)] w-full text-sm rounded-lg focus:border-[var(--accent-color)] focus:outline-none">
                         </fieldset>
+
                         <fieldset>
-                            <label class="block text-xs font-bold text-[#374151] uppercase mb-1.5">Apellido *</label>
-                            <input type="text" name="lastName" required class="input bg-white text-[#111827] border-[#D1D5DB] w-full text-sm rounded-lg focus:border-[var(--accent-color)] focus:outline-none">
+                            <label class="block text-xs font-bold text-[var(--text-color)] uppercase mb-1.5">
+                                Apellido *
+                            </label>
+
+                            <input type="text" name="lastName" required class="input bg-[var(--field-bg)] text-[var(--text-color)] border-[var(--border-color)] w-full text-sm rounded-lg focus:border-[var(--accent-color)] focus:outline-none">
                         </fieldset>
                     </div>
-                    
+
                     <fieldset>
-                        <label class="block text-xs font-bold text-[#374151] uppercase mb-1.5">Teléfono / WhatsApp *</label>
+                        <label class="block text-xs font-bold text-[var(--text-color)] uppercase mb-1.5">
+                            Teléfono / WhatsApp *
+                        </label>
+
                         <div class="flex gap-2">
-                            <select name="phoneCode" class="select bg-white text-[#111827] border-[#D1D5DB] text-sm rounded-lg w-[4.5rem] p-0 px-2 sm:w-28 sm:px-4 shrink-0 focus:border-[var(--accent-color)] focus:outline-none">
+
+                            <select name="phoneCode" class="select bg-[var(--field-bg)] text-[var(--text-color)] border-[var(--border-color)] text-sm rounded-lg w-[4.5rem] p-0 px-2 sm:w-28 sm:px-4 shrink-0 focus:border-[var(--accent-color)] focus:outline-none">
+
                                 <option value="+593">🇪🇨 +593</option>
                                 <option value="+57">🇨🇴 +57</option>
                                 <option value="+51">🇵🇪 +51</option>
                                 <option value="+1">🇺🇸 +1</option>
                                 <option value="">Otro</option>
+
                             </select>
-                            <input type="tel" name="phone" required class="input bg-white text-[#111827] border-[#D1D5DB] w-full text-sm rounded-lg focus:border-[var(--accent-color)] focus:outline-none" placeholder="99 999 9999">
+
+                            <input type="tel" name="phone" required class="input bg-[var(--field-bg)] text-[var(--text-color)] border-[var(--border-color)] w-full text-sm rounded-lg focus:border-[var(--accent-color)] focus:outline-none" placeholder="99 999 9999">
                         </div>
                     </fieldset>
-                    
+
                     <fieldset>
-                        <label class="block text-xs font-bold text-[#374151] uppercase mb-1.5">Correo Electrónico *</label>
-                        <input type="email" name="email" required class="input bg-white text-[#111827] border-[#D1D5DB] w-full text-sm rounded-lg focus:border-[var(--accent-color)] focus:outline-none" placeholder="tu@correo.com">
+                        <label class="block text-xs font-bold text-[var(--text-color)] uppercase mb-1.5">
+                            Correo Electrónico *
+                        </label>
+
+                        <input type="email" name="email" required class="input bg-[var(--field-bg)] text-[var(--text-color)] border-[var(--border-color)] w-full text-sm rounded-lg focus:border-[var(--accent-color)] focus:outline-none" placeholder="tu@correo.com">
                     </fieldset>
-                    
+
                     <button type="submit" class="btn mt-2 min-h-12 w-full rounded-lg border-0 bg-[var(--button-color)] text-white shadow-[var(--shadow-button)] transition-all hover:bg-[var(--primary-hover)]">
                         Enviar mis datos
                     </button>
+
                     <p class="form-status text-xs text-center min-h-[1rem] pb-4 sm:pb-0" data-form-status="join" aria-live="polite"></p>
                 </form>
             </div>
         </div>
     </div>
-    <form method="dialog" class="modal-backdrop bg-black/80 backdrop-blur-sm">
+
+    <form method="dialog" class="modal-backdrop bg-[var(--background-color)]/80 backdrop-blur-sm">
         <button class="cursor-default">close</button>
     </form>
 </dialog>
 
+
+
 <!-- Modal: Siembra en las Naciones (Donación) -->
 <dialog id="donationModal" class="modal modal-bottom sm:modal-middle">
-    <div class="modal-box p-0 max-w-2xl bg-[#FAF9F6] text-[#111827] rounded-t-3xl sm:rounded-3xl shadow-2xl border border-[var(--glass-border)] flex flex-col max-h-[90svh] overflow-hidden">
+    <div class="modal-box p-0 max-w-2xl bg-[var(--surface-color)] text-[var(--text-color)] rounded-t-3xl sm:rounded-3xl shadow-2xl border border-[var(--glass-border)] flex flex-col max-h-[90svh] overflow-hidden">
+
         <!-- Botón Cerrar (Sticky Mobile / Absoluto Desktop) -->
-        <div class="sticky top-0 z-50 flex shrink-0 items-center justify-end border-b border-[#D1D5DB] bg-[#FAF9F6]/95 p-3 backdrop-blur-md sm:absolute sm:right-2 sm:top-2 sm:border-0 sm:bg-transparent">
-            <button type="button" onclick="document.getElementById('donationModal').close()" class="btn btn-sm btn-circle btn-ghost text-[#4B5563] hover:bg-black/10 hover:text-black" aria-label="Cerrar">
+        <div class="sticky top-0 z-50 flex shrink-0 items-center justify-end border-b border-[var(--border-color)] bg-[var(--surface-color)]/95 p-3 backdrop-blur-md sm:absolute sm:right-2 sm:top-2 sm:border-0 sm:bg-transparent">
+            <button type="button" onclick="document.getElementById('donationModal').close()" class="btn btn-sm btn-circle btn-ghost text-[var(--text-muted)] hover:bg-[var(--background-color)]/10 hover:text-[var(--text-color)]" aria-label="Cerrar">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
@@ -550,34 +602,56 @@ $10 USD</p>
                 <h3 class="text-2xl font-semibold mb-2" style="font-family: var(--font-heading);">
                     Siembra en las Naciones
                 </h3>
-                <p class="text-sm text-[#4B5563] mb-0">
+
+                <p class="text-sm text-[var(--text-muted)] mb-0">
                     Tu generosidad hace posible expandir el evangelio y transformar vidas.
                 </p>
             </div>
 
             <div class="grid gap-4 sm:grid-cols-2 mb-6">
-                <div class="rounded-xl border border-[#D1D5DB] bg-white p-4 shadow-sm text-center flex flex-col justify-center">
+
+                  <div class="rounded-xl border border-[var(--border-color)] bg-[var(--surface-color)] p-4 shadow-sm text-center flex flex-col justify-center">
                     <div class="mb-2 text-[0.65rem] font-extrabold uppercase tracking-wider text-[var(--accent-color)]">
                         BANCO PICHINCHA
                     </div>
-                    <div class="text-xs font-semibold text-[#6B7280] mb-1">Cta. Ahorros</div>
-                    <div class="text-base font-bold tracking-widest text-[#111827] mb-1.5" style="font-family: var(--font-heading);">
-                        CTA #2204568910
+
+                    <div class="text-xs font-semibold text-[var(--text-muted)] mb-1">
+                        Cta. Ahorros
                     </div>
-                    <div class="text-[0.65rem] uppercase tracking-widest text-[#6B7280]">
-                        Titular: Impactando Las Naciones
+
+                     <div class="text-xs font-semibold text-[var(--text-muted)] mb-1">
+                        C.I : 0801864059
+                    </div>
+
+                    <div class="text-base font-bold tracking-widest text-[var(--text-color)] mb-1.5" style="font-family: var(--font-heading);">
+                        CTA #2209760178
+                    </div>
+
+                    <div class="text-[0.65rem] uppercase tracking-widest text-[var(--text-muted)]">
+                        Titular: Avilez Ortiz Maria Alexandra 
                     </div>
                 </div>
-                <div class="rounded-xl border border-[#D1D5DB] bg-white p-4 shadow-sm text-center flex flex-col justify-center">
+
+                <div class="rounded-xl border border-[var(--border-color)] bg-[var(--surface-color)] p-4 shadow-sm text-center flex flex-col justify-center">
                     <div class="mb-2 text-[0.65rem] font-extrabold uppercase tracking-wider text-[var(--accent-color)]">
                         BANCO GUAYAQUIL
                     </div>
-                    <div class="text-xs font-semibold text-[#6B7280] mb-1">Cta. Ahorros / Corriente</div>
-                    <div class="text-base font-bold tracking-widest text-[#111827] mb-1.5" style="font-family: var(--font-heading);">
-                        CTA #[Número de cuenta]
+
+                    <div class="text-xs font-semibold text-[var(--text-muted)] mb-1">
+                        Cta. Ahorros 
                     </div>
-                    <div class="text-[0.65rem] uppercase tracking-widest text-[#6B7280]">
-                        Titular: Impactando Las Naciones
+
+                     <div class="text-xs font-semibold text-[var(--text-muted)] mb-1">
+                        C.I : 0852124049
+                    </div>
+
+
+                    <div class="text-base font-bold tracking-widest text-[var(--text-color)] mb-1.5" style="font-family: var(--font-heading);">
+                        CTA # 0024533331
+                    </div>
+
+                    <div class="text-[0.65rem] uppercase tracking-widest text-[var(--text-muted)]">
+                        Titular: Santana Ramirez Edwin Junior
                     </div>
                 </div>
             </div>
@@ -586,40 +660,79 @@ $10 USD</p>
                 <input type="hidden" name="recaptchaToken" value="">
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
                     <fieldset>
-                        <label class="block text-xs font-bold text-[#374151] uppercase mb-1.5">Nombre y Apellido (Opcional)</label>
-                        <input type="text" name="fullName" class="input input-sm bg-white text-[#111827] border-[#D1D5DB] w-full text-sm rounded-lg focus:border-[var(--accent-color)] focus:outline-none" placeholder="Donación anónima">
+                        <label class="block text-xs font-bold text-[var(--text-color)] uppercase mb-1.5">
+                            Nombre y Apellido (Opcional)
+                        </label>
+
+                        <input type="text" name="fullName" class="input input-sm bg-[var(--field-bg)] text-[var(--text-color)] border-[var(--border-color)] w-full text-sm rounded-lg focus:border-[var(--accent-color)] focus:outline-none" placeholder="Donación anónima">
                     </fieldset>
 
                     <fieldset>
-                        <label class="block text-xs font-bold text-[#374151] uppercase mb-1.5">Teléfono / WhatsApp (Opcional)</label>
-                        <input type="tel" name="phone" class="input input-sm bg-white text-[#111827] border-[#D1D5DB] w-full text-sm rounded-lg focus:border-[var(--accent-color)] focus:outline-none" placeholder="99 999 9999">
+                        <label class="block text-xs font-bold text-[var(--text-color)] uppercase mb-1.5">
+                            Teléfono / WhatsApp (Opcional)
+                        </label>
+
+                        <input type="tel" name="phone" class="input input-sm bg-[var(--field-bg)] text-[var(--text-color)] border-[var(--border-color)] w-full text-sm rounded-lg focus:border-[var(--accent-color)] focus:outline-none" placeholder="99 999 9999">
                     </fieldset>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <fieldset>
-                        <label class="block text-xs font-bold text-[#374151] uppercase mb-1.5">Banco transferido</label>
-                        <select name="bank" class="select select-sm bg-white text-[#111827] border-[#D1D5DB] w-full text-sm rounded-lg focus:border-[var(--accent-color)] focus:outline-none">
-                            <option value="">Opcional - Selecciona</option>
-                            <option value="Banco Pichincha">Banco Pichincha</option>
-                            <option value="Banco Guayaquil">Banco Guayaquil</option>
-                            <option value="Otro">Otro</option>
-                        </select>
-                    </fieldset>
+
+                   <fieldset>
+    <label class="block text-xs font-bold text-[var(--text-color)] uppercase mb-1.5">
+        Banco transferido
+    </label>
+
+    <select
+        id="bankSelect"
+        name="bank"
+        class="select select-sm bg-[var(--field-bg)] text-[var(--text-color)] border-[var(--border-color)] w-full text-sm rounded-lg focus:border-[var(--accent-color)] focus:outline-none"
+    >
+        <option value="">Opcional - Selecciona</option>
+        <option value="Banco Pichincha">Banco Pichincha</option>
+        <option value="Banco Guayaquil">Banco Guayaquil</option>
+        <option value="Otro">Otro</option>
+    </select>
+
+    <div id="otherBankContainer" class="hidden mt-2">
+
+        <label class="block text-xs font-bold text-[var(--text-color)] uppercase mb-1.5">
+            Nombre del otro banco *
+        </label>
+
+        <input
+            type="text"
+            id="otherBank"
+            name="otherBank"
+            class="input input-sm bg-[var(--field-bg)] text-[var(--text-color)] border-[var(--border-color)] w-full text-sm rounded-lg focus:border-[var(--accent-color)] focus:outline-none"
+            placeholder="Escribe el nombre del banco"
+        >
+
+    </div>
+</fieldset>
 
                     <fieldset>
-                        <label class="block text-xs font-bold text-[#374151] uppercase mb-1.5">Monto Donado ($ USD)</label>
-                        <input type="text" name="amount" class="input input-sm bg-white text-[#111827] border-[#D1D5DB] w-full text-sm rounded-lg focus:border-[var(--accent-color)] focus:outline-none" placeholder="Ej: 50.00 (Opcional)">
+                        <label class="block text-xs font-bold text-[var(--text-color)] uppercase mb-1.5">
+                            Monto Donado ($ USD)
+                        </label>
+
+                        <input type="text" name="amount" class="input input-sm bg-[var(--field-bg)] text-[var(--text-color)] border-[var(--border-color)] w-full text-sm rounded-lg focus:border-[var(--accent-color)] focus:outline-none" placeholder="Ej: 50.00 (Opcional)">
                     </fieldset>
                 </div>
 
-                <div class="mt-2 rounded-xl bg-[#F3F4F6] p-4 border border-[#E5E7EB] flex flex-col gap-2 sm:flex-row sm:items-center sm:text-left sm:gap-4">
-                    <blockquote class="italic text-xs text-[#4B5563] sm:w-[55%]">
+                <div class="mt-2 rounded-xl bg-[var(--surface-color)] p-4 border border-[var(--border-color)] flex flex-col gap-2 sm:flex-row sm:items-center sm:text-left sm:gap-4">
+
+                    <blockquote class="italic text-xs text-[var(--text-muted)] sm:w-[55%]">
                         «Cada uno dé como propuso en su corazón: no con tristeza, ni por necesidad, porque Dios ama al dador alegre.»
-                        <span class="block mt-1 font-semibold not-italic text-xs text-[#111827]">— 2 Corintios 9:7</span>
+
+                        <span class="block mt-1 font-semibold not-italic text-xs text-[var(--text-color)]">
+                            — 2 Corintios 9:7
+                        </span>
                     </blockquote>
-                    <p class="text-xs leading-relaxed text-[#374151] sm:w-[45%]">
+
+                    <p class="text-xs leading-relaxed text-[var(--text-color)] sm:w-[45%]">
                         Cada semilla es muy importante. Agradecemos tu generosidad y oramos para que Dios multiplique tu vida.
                     </p>
                 </div>
@@ -627,14 +740,18 @@ $10 USD</p>
                 <button type="submit" class="btn mt-4 min-h-[3rem] w-full rounded-lg border-0 bg-[#f7be1d] font-bold text-[#251a00] shadow-[var(--shadow-button)] transition-all hover:scale-[0.98]">
                     Registrar Donación
                 </button>
+
                 <p class="form-status text-xs text-center min-h-[1rem] pb-4 sm:pb-0 mt-2" data-form-status="donation" aria-live="polite"></p>
             </form>
         </div>
     </div>
-    <form method="dialog" class="modal-backdrop bg-black/80 backdrop-blur-sm">
+
+    <form method="dialog" class="modal-backdrop bg-[var(--background-color)]/80 backdrop-blur-sm">
         <button class="cursor-default" tabindex="-1">close</button>
     </form>
 </dialog>
+
+
 
 <!-- Modal: Registro a Cruzada -->
 <dialog id="crusadeModal" class="modal modal-bottom sm:modal-middle">

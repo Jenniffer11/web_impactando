@@ -9,6 +9,7 @@ html {
     scroll-padding-top: 92px;
 }
 
+
 body {
     margin: 0;
     overflow-x: hidden;
@@ -33,3 +34,4 @@ img {
     background: var(--accent-color);
     color: #ffffff;
 }
+

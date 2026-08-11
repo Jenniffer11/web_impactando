@@ -146,14 +146,15 @@ a{
    HERO - LOGO Y FONDO SEGÚN EL TEMA
    =========================================================== */
 
-/* MODO OSCURO */
 .hero-logo-background {
     position: absolute;
     inset: 0;
+
     background-image: url("../img/800_6a6babfc90a27af3c.png");
+
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    background-repeat: no-repeat;
 }
 
 /* MODO CLARO */
@@ -163,20 +164,14 @@ a{
 
 
 /* ===========================================================
-   HERO - AJUSTE PARA TELÉFONOS
+   AJUSTE DEL HERO PARA TELÉFONOS
    =========================================================== */
 
 @media (max-width: 767px) {
 
     .hero-logo-background {
-        /*
-         * En móvil reducimos el tamaño de la imagen
-         * para evitar que se recorten los lados.
-         */
-        background-size: 100% auto;
+        background-size: auto 100%;
         background-position: center center;
-        background-repeat: no-repeat;
-        background-color: var(--background-color);
     }
 
 }
