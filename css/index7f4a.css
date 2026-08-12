@@ -3909,3 +3909,269 @@ input:checked + .slider::before{
     transform:translateX(36px);
     content:"☀️";
 }
+
+/* =========================================================
+   HERO - AJUSTE DEFINITIVO
+   ========================================================= */
+
+:root {
+    --site-header-height: 82px;
+}
+
+/* HEADER */
+.site-header {
+    min-height: var(--site-header-height);
+}
+
+/* HERO */
+#hero {
+    position: relative;
+    margin-top: var(--site-header-height);
+    min-height: calc(100svh - var(--site-header-height));
+    width: 100%;
+    overflow: hidden;
+}
+
+/* =========================================================
+   IMAGEN DEL HERO
+   ========================================================= */
+
+#hero .hero-logo-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-repeat: no-repeat;
+
+    /*
+     * La imagen llena todo el hero.
+     * Mantiene sus proporciones.
+     */
+    background-size: cover;
+
+    background-position: center center;
+}
+
+/* =========================================================
+   BOTÓN REUNIONES
+   ========================================================= */
+
+#hero > div:last-of-type {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2.5rem;
+    z-index: 20;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   TELÉFONOS
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* =====================================================
+       HEADER + HERO
+       ===================================================== */
+
+    :root {
+        --mobile-header-height: 127px;
+    }
+
+
+    /* =====================================================
+       ELIMINAR LA LÍNEA INFERIOR DEL HEADER
+       ===================================================== */
+
+    /*
+     * El header original tiene:
+     * border-b border-[var(--border-color)]
+     *
+     * La quitamos solamente en teléfono para que
+     * el gris del menú continúe visualmente hacia abajo.
+     */
+    .site-header {
+        border-bottom: 0 !important;
+        box-shadow: none !important;
+    }
+
+
+    /* =====================================================
+       HERO
+       ===================================================== */
+
+    #hero {
+        margin-top: 0 !important;
+
+        /*
+         * El espacio reservado para el header queda dentro
+         * del hero y conserva el color del footer.
+         */
+        padding-top: var(--mobile-header-height) !important;
+        padding-bottom: 0 !important;
+
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: stretch !important;
+
+        overflow: hidden !important;
+
+        /*
+         * MISMO GRIS DEL FOOTER
+         */
+        background: var(--footer-bg) !important;
+
+        /*
+         * Eliminamos cualquier borde propio del hero.
+         */
+        border: 0 !important;
+        box-shadow: none !important;
+    }
+
+
+    /* =====================================================
+       ELIMINAR DIVISOR DEL HERO
+       ===================================================== */
+
+    /*
+     * El hero original utiliza la clase "gold-divider".
+     * Si esa clase genera una línea mediante ::before
+     * o ::after, la anulamos en móvil.
+     */
+    #hero.gold-divider::before,
+    #hero.gold-divider::after {
+        display: none !important;
+        content: none !important;
+        border: 0 !important;
+        box-shadow: none !important;
+    }
+
+
+    /* =====================================================
+       IMAGEN DEL HERO
+       ===================================================== */
+
+    #hero .hero-logo-background {
+        position: relative !important;
+
+        inset: auto !important;
+
+        width: 100% !important;
+        height: auto !important;
+
+        /*
+         * Conservamos exactamente la proporción
+         * de la imagen.
+         */
+        aspect-ratio: 800 / 346 !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        /*
+         * Imagen completa de punta a punta.
+         */
+        background-size: 100% 100% !important;
+
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+
+        flex-shrink: 0 !important;
+
+        border: 0 !important;
+        box-shadow: none !important;
+    }
+
+
+    /* =====================================================
+       QUITAR OVERLAY
+       ===================================================== */
+
+    #hero .hero-overlay {
+        display: none !important;
+    }
+
+
+    /* =====================================================
+       ZONA DEL BOTÓN REUNIONES
+       ===================================================== */
+
+    #hero > div:nth-child(3) {
+        position: relative !important;
+
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        inset: auto !important;
+
+        width: 100% !important;
+
+        min-height: 0 !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        /*
+         * MISMO COLOR DEL FOOTER
+         */
+        background: var(--footer-bg) !important;
+
+        margin: 0 !important;
+        padding: 12px 20px 18px !important;
+
+        z-index: 20 !important;
+
+        border: 0 !important;
+        box-shadow: none !important;
+    }
+
+
+    /* =====================================================
+       BOTÓN REUNIONES
+       ===================================================== */
+
+    #hero > div:nth-child(3) a {
+        position: relative !important;
+
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        inset: auto !important;
+
+        margin: 0 !important;
+
+        display: inline-flex !important;
+    }
+}
+
+
+/* =========================================================
+   TELÉFONOS MÁS PEQUEÑOS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    :root {
+        --mobile-header-height: 127px;
+    }
+
+    #hero > div:nth-child(3) {
+        padding-top: 10px !important;
+        padding-bottom: 16px !important;
+    }
+}

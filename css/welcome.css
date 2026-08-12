@@ -1,0 +1,586 @@
+/* =========================================================
+   WELCOME SCREEN
+   Impactando las Naciones - Casa de Dios
+   ========================================================= */
+
+
+/* =========================================================
+   CONTROL DE VISIBILIDAD
+   ========================================================= */
+
+/*
+ * Mientras la bienvenida está activa:
+ * NO permitimos que se vea absolutamente nada
+ * del contenido del sitio.
+ */
+html.welcome-active body > *:not(#welcome-screen) {
+    visibility: hidden !important;
+}
+
+
+/*
+ * Cuando la bienvenida ya fue mostrada en esta sesión,
+ * el contenido aparece normalmente.
+ */
+html.welcome-seen #welcome-screen {
+    display: none !important;
+}
+
+
+/* =========================================================
+   PANTALLA COMPLETA
+   ========================================================= */
+
+#welcome-screen {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100dvh;
+
+    z-index: 999999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(247, 201, 17, 0.495) 0%,
+            rgba(15, 15, 15, 1) 42%,
+            #000000 100%
+        );
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transition:
+        opacity 0.9s ease,
+        visibility 0.9s ease;
+}
+
+
+/* =========================================================
+   OCULTAR AL FINAL
+   ========================================================= */
+
+#welcome-screen.welcome-hidden {
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTENIDO CENTRAL
+   ========================================================= */
+
+.welcome-content {
+    position: relative;
+
+    z-index: 10;
+
+    width: min(90vw, 650px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   BIENVENIDOS
+   ========================================================= */
+
+.welcome-title {
+    margin: 0 0 24px;
+
+    color: #d4af37;
+
+    font-family:
+        var(--font-heading),
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(1.7rem, 5vw, 3.2rem);
+
+    font-weight: 600;
+
+    letter-spacing: 0.28em;
+
+    text-transform: uppercase;
+
+    opacity: 0;
+
+    transform: translateY(18px);
+
+    text-shadow:
+        0 0 8px rgba(212, 175, 55, 0.35),
+        0 0 25px rgba(212, 175, 55, 0.22);
+
+    animation:
+        welcomeTitleIn 1.2s ease forwards,
+        welcomeTitleGlow 2.2s ease-in-out 1.2s infinite alternate;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.welcome-logo {
+    display: block;
+
+    width: min(78vw, 520px);
+
+    height: auto;
+
+    max-width: 520px;
+
+    object-fit: contain;
+
+    opacity: 0;
+
+    transform: scale(0.82);
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(212, 175, 55, 0.20)
+        )
+        drop-shadow(
+            0 0 32px
+            rgba(212, 175, 55, 0.12)
+        );
+
+    animation:
+        welcomeLogoIn 1.5s
+        cubic-bezier(.22,1,.36,1)
+        0.25s
+        forwards,
+
+        welcomeLogoFloat 3s
+        ease-in-out
+        1.8s
+        infinite;
+}
+
+
+/* =========================================================
+   SUBTÍTULO
+   ========================================================= */
+
+.welcome-subtitle {
+    margin: 20px 0 0;
+
+    color: rgba(255,255,255,0.78);
+
+    font-family:
+        var(--font-body),
+        Arial,
+        sans-serif;
+
+    font-size:
+        clamp(0.58rem, 2vw, 0.85rem);
+
+    letter-spacing: 0.28em;
+
+    text-transform: uppercase;
+
+    opacity: 0;
+
+    animation:
+        welcomeSubtitleIn
+        1s
+        ease
+        1.1s
+        forwards;
+}
+
+
+/* =========================================================
+   CAMPO DE DESTELLOS
+   ========================================================= */
+
+.welcome-spark-field {
+    position: absolute;
+
+    inset: -20%;
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CHISPAS
+   ========================================================= */
+
+.welcome-spark {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #d4af37;
+
+    box-shadow:
+        0 0 5px #d4af37,
+        0 0 12px rgba(212,175,55,0.8),
+        0 0 24px rgba(212,175,55,0.45);
+
+    opacity: 0;
+
+    animation:
+        sparkOrbit
+        var(--spark-duration)
+        ease-in-out
+        var(--spark-delay)
+        infinite;
+}
+
+
+.welcome-spark.small {
+    width: 3px;
+    height: 3px;
+}
+
+
+.welcome-spark.large {
+    width: 7px;
+    height: 7px;
+}
+
+
+/* =========================================================
+   DESTELLOS GRANDES
+   ========================================================= */
+
+.welcome-flash {
+    position: absolute;
+
+    width: 2px;
+    height: 32px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #d4af37,
+            transparent
+        );
+
+    opacity: 0;
+
+    transform:
+        rotate(var(--flash-angle));
+
+    animation:
+        flashAppear
+        var(--flash-duration)
+        ease-in-out
+        var(--flash-delay)
+        infinite;
+}
+
+
+.welcome-flash::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    transform: rotate(90deg);
+
+    border-radius: inherit;
+
+    background: inherit;
+}
+
+
+/* =========================================================
+   ANIMACIONES
+   ========================================================= */
+
+@keyframes welcomeTitleIn {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(18px);
+
+        letter-spacing: 0.5em;
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+        letter-spacing: 0.28em;
+    }
+}
+
+
+@keyframes welcomeTitleGlow {
+
+    from {
+        text-shadow:
+            0 0 8px
+            rgba(212,175,55,0.30),
+
+            0 0 20px
+            rgba(212,175,55,0.15);
+    }
+
+    to {
+        text-shadow:
+            0 0 14px
+            rgba(212,175,55,0.60),
+
+            0 0 36px
+            rgba(212,175,55,0.30);
+    }
+}
+
+
+@keyframes welcomeLogoIn {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            scale(0.78);
+
+        filter:
+            drop-shadow(
+                0 0 0
+                rgba(212,175,55,0)
+            );
+    }
+
+    65% {
+        opacity: 1;
+
+        transform:
+            scale(1.04);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+        filter:
+            drop-shadow(
+                0 0 12px
+                rgba(212,175,55,0.22)
+            )
+            drop-shadow(
+                0 0 30px
+                rgba(212,175,55,0.14)
+            );
+    }
+}
+
+
+@keyframes welcomeLogoFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-6px);
+    }
+}
+
+
+@keyframes welcomeSubtitleIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes sparkOrbit {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            rotate(var(--spark-angle))
+            translateX(20px)
+            scale(0.2);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.9;
+
+        transform:
+            rotate(
+                calc(
+                    var(--spark-angle) + 180deg
+                )
+            )
+            translateX(var(--spark-distance))
+            scale(1);
+    }
+
+    80% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            rotate(
+                calc(
+                    var(--spark-angle) + 360deg
+                )
+            )
+            translateX(20px)
+            scale(0.1);
+    }
+}
+
+
+@keyframes flashAppear {
+
+    0%,
+    100% {
+        opacity: 0;
+
+        transform:
+            rotate(var(--flash-angle))
+            scale(0.2);
+    }
+
+    35% {
+        opacity: 0.9;
+
+        transform:
+            rotate(var(--flash-angle))
+            scale(1);
+    }
+
+    55% {
+        opacity: 0.25;
+    }
+
+    75% {
+        opacity: 0;
+
+        transform:
+            rotate(var(--flash-angle))
+            scale(1.5);
+    }
+}
+
+
+/* =========================================================
+   TELÉFONO
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .welcome-title {
+        margin-bottom: 18px;
+
+        font-size:
+            clamp(1.35rem, 7vw, 2.2rem);
+
+        letter-spacing: 0.18em;
+    }
+
+    .welcome-logo {
+        width: 82vw;
+    }
+
+    .welcome-subtitle {
+        margin-top: 15px;
+
+        font-size: 0.55rem;
+
+        letter-spacing: 0.20em;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .welcome-logo {
+        width: min(65vw, 500px);
+    }
+
+    .welcome-title {
+        font-size: 2.5rem;
+    }
+}
+
+
+/* =========================================================
+   REDUCIR MOVIMIENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #welcome-screen *,
+    #welcome-screen {
+        animation: none !important;
+
+        transition: none !important;
+    }
+}
